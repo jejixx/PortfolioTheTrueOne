@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Easy2Drive — application auto-école">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <rect x="0" y="380" width="800" height="120" fill="#64748b"/>
+  <rect x="0" y="395" width="800" height="8" fill="#f8fafc"/>
+  <rect x="120" y="120" width="560" height="280" rx="16" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+  <text x="400" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" fill="#1d4ed8" font-weight="700">Easy2Drive</text>
+  <text x="400" y="210" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#64748b">Gestion auto-école</text>
+  <!-- car icon -->
+  <rect x="300" y="250" width="200" height="70" rx="20" fill="#2563eb"/>
+  <rect x="330" y="230" width="140" height="40" rx="12" fill="#3b82f6"/>
+  <circle cx="340" cy="325" r="22" fill="#1e293b"/>
+  <circle cx="460" cy="325" r="22" fill="#1e293b"/>
+  <circle cx="340" cy="325" r="10" fill="#94a3b8"/>
+  <circle cx="460" cy="325" r="10" fill="#94a3b8"/>
+  <!-- calendar badge -->
+  <rect x="520" y="240" width="90" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="565" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" fill="#b45309">??</text>
+</svg>

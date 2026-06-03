@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Portfolio BTS SIO">
+  <rect width="800" height="500" fill="#eff6ff"/>
+  <rect x="60" y="60" width="680" height="380" rx="20" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="120" cy="110" r="16" fill="#3b82f6"/>
+  <rect x="160" y="98" width="200" height="24" rx="6" fill="#dbeafe"/>
+  <rect x="80" y="160" width="640" height="240" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" fill="#1d4ed8" font-weight="700">Portfolio BTS SIO</text>
+</svg>

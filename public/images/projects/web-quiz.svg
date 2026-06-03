@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="web_td00  site de quiz">
+  <rect width="800" height="500" fill="#faf5ff"/>
+  <rect x="100" y="60" width="600" height="380" rx="16" fill="#fff" stroke="#9333ea" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" fill="#7e22ce" font-weight="700">web_td00</text>
+  <text x="400" y="150" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#64748b">Site de quiz interactif</text>
+  <!-- question card -->
+  <rect x="160" y="180" width="480" height="180" rx="12" fill="#f3e8ff"/>
+  <text x="400" y="225" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#581c87" font-weight="600">Question 3 / 10</text>
+  <text x="400" y="260" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6b21a8">Quelle est la bonne réponse ?</text>
+  <rect x="200" y="285" width="400" height="32" rx="8" fill="#fff" stroke="#c4b5fd"/>
+  <rect x="200" y="325" width="400" height="32" rx="8" fill="#fff" stroke="#c4b5fd"/>
+  <text x="400" y="430" text-anchor="middle" font-size="40">S</text>
+</svg>

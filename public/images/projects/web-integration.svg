@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Intégration web HTML CSS JavaScript">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <rect x="80" y="60" width="640" height="380" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="80" y="60" width="640" height="48" rx="12" fill="#f1f5f9"/>
+  <circle cx="108" cy="84" r="8" fill="#ef4444"/>
+  <circle cx="132" cy="84" r="8" fill="#eab308"/>
+  <circle cx="156" cy="84" r="8" fill="#22c55e"/>
+  <text x="400" y="280" text-anchor="middle" font-family="monospace" font-size="22" fill="#334155">&lt;html&gt; · CSS · JS</text>
+</svg>

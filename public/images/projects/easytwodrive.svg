@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="EasyTwoDrive  application auto-école">
+  <rect width="800" height="500" fill="#f0f9ff"/>
+  <rect x="100" y="90" width="600" height="320" rx="20" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="400" y="155" text-anchor="middle" font-family="system-ui,sans-serif" font-size="34" fill="#0369a1" font-weight="700">EasyTwoDrive</text>
+  <text x="400" y="190" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#64748b">Évolution  gestion auto-école</text>
+  <rect x="180" y="230" width="440" height="120" rx="12" fill="#e0f2fe"/>
+  <text x="220" y="270" font-family="system-ui,sans-serif" font-size="14" fill="#334155">=d Élèves &amp; moniteurs</text>
+  <text x="220" y="300" font-family="system-ui,sans-serif" font-size="14" fill="#334155">=— Planning des leçons</text>
+  <text x="220" y="330" font-family="system-ui,sans-serif" font-size="14" fill="#334155">=Ë Suivi administratif</text>
+  <rect x="500" y="250" width="80" height="80" rx="40" fill="#0ea5e9" opacity="0.2"/>
+  <text x="540" y="300" text-anchor="middle" font-size="36">=¦</text>
+</svg>

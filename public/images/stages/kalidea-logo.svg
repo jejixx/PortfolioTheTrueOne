@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-label="Up Kalidea">
+  <rect width="800" height="320" fill="#ffffff"/>
+  <rect x="120" y="100" width="100" height="100" rx="4" fill="#f97316"/>
+  <text x="170" y="162" text-anchor="middle" font-family="system-ui,sans-serif" font-size="36" fill="#ffffff" font-weight="700">Up</text>
+  <line x1="260" y1="110" x2="260" y2="190" stroke="#64748b" stroke-width="2"/>
+  <text x="290" y="162" font-family="system-ui,sans-serif" font-size="42" fill="#475569" font-weight="700">Kalidea</text>
+</svg>

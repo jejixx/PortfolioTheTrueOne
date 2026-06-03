@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="API TaskFlow">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <rect x="50" y="50" width="700" height="400" rx="12" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="100" font-family="monospace" font-size="14" fill="#22c55e">GET /api/tasks</text>
+  <text x="80" y="130" font-family="monospace" font-size="14" fill="#94a3b8">POST /api/projects</text>
+  <text x="80" y="160" font-family="monospace" font-size="14" fill="#94a3b8">PUT /api/tasks/:id</text>
+  <rect x="80" y="200" width="640" height="200" rx="8" fill="#0b1120"/>
+  <text x="400" y="310" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" fill="#f8fafc" font-weight="700">TaskFlow API</text>
+</svg>

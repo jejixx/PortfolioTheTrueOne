@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Passe ton hack d'abord 2026  CTF COMCYBER">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <rect x="60" y="50" width="680" height="400" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="400" y="130" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#22c55e" font-weight="700" letter-spacing="2">COMCYBER</text>
+  <text x="400" y="190" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" fill="#f8fafc" font-weight="700">Passe ton hack d&apos;abord</text>
+  <text x="400" y="225" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#94a3b8">Édition 2026 · Capture The Flag</text>
+  <!-- flag icon -->
+  <path d="M340 280 L340 380 M340 280 L420 300 L340 320 Z" fill="none" stroke="#22c55e" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="450" y="290" width="220" height="90" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="560" y="325" text-anchor="middle" font-family="monospace" font-size="14" fill="#4ade80">flag{...}</text>
+  <text x="560" y="355" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#64748b">19 jan.  6 fév. 2026</text>
+</svg>

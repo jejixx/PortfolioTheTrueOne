@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Portfolio BTS SIO de Matthias Colin — projets, expériences et compétences. Option SLAM au Lycée Le Castel (Dijon).",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  email: "colinmatthias9@gmail.com",
+  email: "contactcolinmatthias9@gmail.com",
   phone: "06 44 35 38 67",
   location: "Manziat, France",
   cvPath: "/cv.pdf",

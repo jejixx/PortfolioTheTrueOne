@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface StaggerListProps {
   children: ReactNode;
@@ -15,8 +15,13 @@ export function StaggerList({
   stagger = 0.08,
 }: StaggerListProps) {
   const prefersReducedMotion = useReducedMotion();
+  const [ready, setReady] = useState(false);
 
-  if (prefersReducedMotion) {
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  if (prefersReducedMotion || !ready) {
     return <div className={className}>{children}</div>;
   }
 
@@ -46,8 +51,13 @@ export function StaggerItem({
   className?: string;
 }) {
   const prefersReducedMotion = useReducedMotion();
+  const [ready, setReady] = useState(false);
 
-  if (prefersReducedMotion) {
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  if (prefersReducedMotion || !ready) {
     return <div className={className}>{children}</div>;
   }
 

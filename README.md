@@ -174,6 +174,8 @@ pm2 restart portfolio
 | PM2 `errored` (redémarrages en boucle) | `pm2 logs portfolio` puis `npm run build` et relancer PM2 |
 | Formulaire : envoi échoué | `CONTACT_EMAIL` = e-mail du compte Resend ; voir `pm2 logs portfolio` |
 | `ENOTEMPTY` sur `npm install` | `rm -rf node_modules` puis `npm install` |
+| Accueil vide / contenu invisible | Supprimer `~/Documents/package-lock.json` si présent, puis `git pull`, `npm run build`, `pm2 restart portfolio` |
+| Avertissement Next.js « multiple lockfiles » | Ne pas laisser de `package-lock.json` dans le dossier parent du projet |
 
 ---
 

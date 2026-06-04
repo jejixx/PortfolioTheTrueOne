@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
@@ -20,6 +20,11 @@ export function FadeIn({
   onMount = false,
 }: FadeInProps) {
   const prefersReducedMotion = useReducedMotion();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
 
   const offset =
     direction === "up" ? 24 : direction === "down" ? -24 : 0;
@@ -27,7 +32,8 @@ export function FadeIn({
   const visible = { opacity: 1, y: 0 };
   const transition = { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as const };
 
-  if (prefersReducedMotion) {
+  // SSR + chargement JS : contenu visible (évite page blanche en prod)
+  if (prefersReducedMotion || !ready) {
     return <div className={className}>{children}</div>;
   }
 

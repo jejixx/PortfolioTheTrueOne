@@ -25,8 +25,8 @@ export default function ContactPage() {
               Formulaire de contact
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Validation côté client et serveur. L&apos;envoi e-mail est prêt à
-              être branché (Resend, Nodemailer…).
+              Votre message m&apos;est envoyé directement par e-mail. Je vous
+              réponds dès que possible.
             </p>
             <div className="mt-6">
               <ContactForm />

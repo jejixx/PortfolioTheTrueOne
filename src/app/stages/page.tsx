@@ -14,7 +14,7 @@ export default function StagesPage() {
   return (
     <Section
       title="Mes stages"
-      subtitle="Stage d'observation Up | Kalidea (3ème D) — le stage BTS en entreprise sera ajouté prochainement."
+      subtitle="Stage d'observation Up | Kalidea (3ème D) et stage BTS SIO en cours chez ID Conseils (Feillens) — application WPF de gestion d'abonnements Microsoft."
     >
       <ul className="grid gap-6 lg:grid-cols-2" role="list">
         {stages.map((stage) => (

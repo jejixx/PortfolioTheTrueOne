@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
-import { getAvailableGallery, getStageBySlug, getStageHeroImage, stages } from "@/data/stages";
+import { getStageBySlug, getStageGalleryItems, getStageHeroImage, stages } from "@/data/stages";
 import { siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/seo";
 import { formatDateRange } from "@/lib/utils";
@@ -37,7 +37,7 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
   if (!stage) notFound();
 
   const heroImage = getStageHeroImage(stage);
-  const gallery = getAvailableGallery(stage);
+  const galleryItems = getStageGalleryItems(stage);
 
   return (
     <article>
@@ -127,27 +127,43 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
               </section>
             )}
 
-            {gallery.length > 0 ? (
+            {galleryItems.length > 0 ? (
               <section>
                 <h2 className="text-xl font-semibold text-foreground">
-                  Illustrations du rapport
+                  {stage.reportUrl
+                    ? "Illustrations du rapport"
+                    : "Captures d'écran de l'application"}
                 </h2>
                 <ul className="mt-6 grid gap-4 sm:grid-cols-2" role="list">
-                  {gallery.map((item) => (
+                  {galleryItems.map((item) => (
                     <li
                       key={item.src}
                       className="overflow-hidden rounded-[var(--radius)] border border-card-border bg-card"
                     >
-                      <div className="relative aspect-[4/3] bg-white">
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-contain p-4"
-                          loading="lazy"
-                        />
-                      </div>
+                      {item.available ? (
+                        <div className="relative aspect-[4/3] bg-white">
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-contain p-4"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className="flex aspect-[4/3] flex-col items-center justify-center gap-2 border-b border-dashed border-card-border bg-muted-bg px-4 text-center"
+                          aria-label={`${item.alt} - capture à venir`}
+                        >
+                          <span className="text-sm font-medium text-muted">
+                            Capture à venir
+                          </span>
+                          <span className="text-xs text-muted/80">
+                            Déposez le PNG dans public/images/stages/idconseil/
+                          </span>
+                        </div>
+                      )}
                       <p className="p-3 text-xs text-muted">{item.alt}</p>
                     </li>
                   ))}

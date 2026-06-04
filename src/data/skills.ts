@@ -47,5 +47,5 @@ export const skillCategories: SkillCategoryGroup[] = [
 export const homeStats: StatItem[] = [
   { label: "Technologies maîtrisées", value: "12+" },
   { label: "Projets réalisés", value: "6" },
-  { label: "Stages & immersions", value: "1" },
+  { label: "Stages & immersions", value: "2" },
 ];

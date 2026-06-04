@@ -31,7 +31,7 @@ export default function HomePage() {
 
       <section className="border-b border-card-border bg-gradient-to-b from-accent-muted/40 to-background py-20 md:py-28">
         <Container>
-          <FadeIn>
+          <FadeIn onMount>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">
               Portfolio BTS SIO
             </p>

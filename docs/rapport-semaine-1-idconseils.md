@@ -14,7 +14,7 @@
 
 ID Conseils est une entreprise de services informatiques qui accompagne ses clients depuis 2004 dans la maintenance et l'évolution de leurs systèmes informatiques (assistance, virtualisation, développement sur mesure, formations).
 
-Dans le cadre de mon stage BTS SIO (option SLAM), je participe au développement d'une **application desktop WPF (.NET 6)** dédiée à la **gestion des abonnements Microsoft 365** : suivi des clients, des licences, de la facturation et du rapprochement fournisseur/client.
+Dans le cadre de mon stage BTS SIO (option SLAM), je participe au développement d'une **application desktop WPF (.NET 10)** dédiée à la **gestion des abonnements Microsoft 365** : suivi des clients, des licences, de la facturation et du rapprochement fournisseur/client.
 
 Une **maquette mock** fournie en amont définit les **6 écrans** à produire, avec la stack technique suivante : WPF, C#, Syncfusion (`SfDataGrid`, `SfTabControl`, `SfButton`, `SfDatePicker`, `SfChart`).
 

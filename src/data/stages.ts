@@ -81,11 +81,11 @@ export const stages: Stage[] = [
     startDate: "2026-06-01",
     endDate: "2026-07-03",
     duration: "5 semaines",
-    technologies: ["C#", "WPF", ".NET 6", "Syncfusion", "Microsoft 365"],
+    technologies: ["C#", "WPF", ".NET 10", "Syncfusion", "Microsoft 365"],
     shortDescription:
       "Stage BTS SIO en cours chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 (revente de licences).",
     companyContext:
-      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 6, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, clients, abonnements, facturation et rapprochement fournisseur/client. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
+      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 10, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, clients, abonnements, facturation et rapprochement fournisseur/client. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
     missions: [
       "Semaine 1 — Prise en main WPF/C#, Syncfusion, tableau de bord (UserControls, KPI, graphiques)",
       "Semaine 2 — Back-end : événements, services, DTO ; écran Clients presque terminé (SfDataGrid, CRUD)",
@@ -105,7 +105,7 @@ export const stages: Stage[] = [
       {
         title: "Maquette WPF — écrans à produire (mock)",
         description:
-          "Cahier des écrans : tableau de bord, clients, détail client, abonnements, facturation, rapprochement (.NET 6, Syncfusion).",
+          "Cahier des écrans : tableau de bord, clients, détail client, abonnements, facturation, rapprochement (.NET 10, Syncfusion).",
       },
       {
         title: "Tableau de bord WPF — semaine 1",

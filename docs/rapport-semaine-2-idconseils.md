@@ -14,7 +14,7 @@
 
 ## 1. Rappel du contexte
 
-Poursuite du développement de l'application desktop **WPF (.NET 6)** de gestion des abonnements **Microsoft 365** chez ID Conseils.
+Poursuite du développement de l'application desktop **WPF (.NET 10)** de gestion des abonnements **Microsoft 365** chez ID Conseils.
 
 À l'issue de la semaine 1, le **tableau de bord** était fonctionnel sur données mock. La semaine 2 marque le passage à la **couche métier (back-end)** et au **deuxième écran** de la maquette : la page **Clients**.
 

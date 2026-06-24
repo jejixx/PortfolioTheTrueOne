@@ -81,18 +81,17 @@ export const stages: Stage[] = [
     startDate: "2026-06-01",
     endDate: "2026-07-03",
     duration: "5 semaines",
-    technologies: ["C#", "WPF", "Syncfusion", "Microsoft 365"],
+    technologies: ["C#", "WPF", ".NET 6", "Syncfusion", "Microsoft 365"],
     shortDescription:
-      "Stage BTS SIO en cours chez ID Conseils (Feillens) — développement d'une application desktop WPF de gestion des abonnements Microsoft.",
+      "Stage BTS SIO en cours chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 (revente de licences).",
     companyContext:
-      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je participe au développement d'une application desktop WPF dédiée à la gestion des abonnements Microsoft : suivi des licences, consultation et maintenance des données liées aux abonnements. La première semaine est consacrée à la prise en main de WPF, C# et des composants Syncfusion pour construire une interface métier professionnelle.",
+      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 6, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, clients, abonnements, facturation et rapprochement fournisseur/client. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
     missions: [
-      "Semaine 1 — Prise en main de WPF, C# et des composants Syncfusion",
-      "Participation au développement de l'application de gestion d'abonnements Microsoft",
-      "Conception et intégration d'écrans métier (listes, fiches détail, actions de gestion)",
-      "Implémentation de la logique métier et liaison avec les données d'abonnements",
-      "Tests, corrections et améliorations continues jusqu'à la fin du stage (3 juillet)",
-      "Documentation du travail réalisé (captures d'écran, rapport BTS)",
+      "Semaine 1 — Prise en main WPF/C#, Syncfusion, tableau de bord (UserControls, KPI, graphiques)",
+      "Semaine 2 — Back-end : événements, services, DTO ; écran Clients presque terminé (SfDataGrid, CRUD)",
+      "Finalisation page Clients : redirection vers le détail avec les bonnes données, mise en forme",
+      "Développement des écrans restants (détail client, abonnements, facturation, rapprochement)",
+      "Documentation du travail réalisé (captures d'écran, fiches récap hebdomadaires)",
     ],
     competences: [
       "B1.4 — Travailler en mode projet",
@@ -101,36 +100,42 @@ export const stages: Stage[] = [
       "B2.3 — Concevoir et mettre en place une solution logicielle",
     ],
     bilan:
-      "Stage en cours (juin–juillet 2026) chez ID Conseils à Feillens. La première semaine m'a permis de découvrir le développement desktop avec WPF et Syncfusion sur un cas réel : la gestion des abonnements Microsoft. Je consolide mes compétences C# tout en produisant des écrans concrets pour l'application métier. Le bilan complet et les compétences acquises seront enrichis à l'issue du stage.",
+      "Stage en cours (juin–juillet 2026) chez ID Conseils. Semaine 1 : tableau de bord WPF (Syncfusion, mock). Semaine 2 : mise en place du back-end (événements, services, DTO) et développement de l'écran Clients, presque terminé — reste la redirection vers le détail et la mise en forme. Consolidation du pattern MVVM sur un cas métier réel.",
     deliverables: [
       {
-        title: "Application WPF — gestion d'abonnements Microsoft",
+        title: "Maquette WPF — écrans à produire (mock)",
         description:
-          "Application desktop métier pour centraliser et gérer les abonnements Microsoft (interfaces Syncfusion, logique C#).",
+          "Cahier des écrans : tableau de bord, clients, détail client, abonnements, facturation, rapprochement (.NET 6, Syncfusion).",
       },
       {
-        title: "Captures d'écran & documentation",
+        title: "Tableau de bord WPF — semaine 1",
         description:
-          "Visuels des écrans produits pendant le stage, intégrés au portfolio et au rapport BTS.",
+          "Premier écran fonctionnel : menu latéral, cartes KPI, graphiques Syncfusion (données mock v1.0.0).",
+      },
+      {
+        title: "Page Clients — semaine 2 (en cours)",
+        description:
+          "Liste SfDataGrid, services et DTO ; finalisation redirection et mise en forme en cours.",
+      },
+      {
+        title: "Fiches récapitulatives hebdomadaires",
+        description:
+          "Comptes rendus semaine 1 et 2 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md).",
       },
     ],
     gallery: [
       {
-        src: img("idconseil/01-vue-principale.png"),
-        alt: "Vue principale — application de gestion d'abonnements Microsoft",
+        src: img("idconseil/00-maquette-ecrans-mock.png"),
+        alt: "Maquette WPF — gestion des abonnements Microsoft 365 (mock) — 6 écrans à produire",
       },
       {
-        src: img("idconseil/02-liste-abonnements.png"),
-        alt: "Liste des abonnements Microsoft",
-      },
-      {
-        src: img("idconseil/03-detail-abonnement.png"),
-        alt: "Détail ou gestion d'un abonnement",
+        src: img("idconseil/01-tableau-de-bord-semaine1.png"),
+        alt: "Tableau de bord WPF — semaine 1, première implémentation (ID Conseils)",
       },
     ],
     image: img("idconseil-logo.jpg"),
     imageAlt:
-      "Logo ID Conseils — stage BTS SIO, application WPF de gestion d'abonnements Microsoft",
+      "Logo ID Conseils — stage BTS SIO, application WPF de gestion d'abonnements Microsoft 365",
   },
 ];
 

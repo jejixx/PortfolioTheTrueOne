@@ -83,14 +83,15 @@ export const stages: Stage[] = [
     duration: "5 semaines",
     technologies: ["C#", "WPF", ".NET 10", "Syncfusion", "Microsoft 365"],
     shortDescription:
-      "Stage BTS SIO en cours chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 (revente de licences).",
+      "Stage BTS SIO en cours chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 avec intégration progressive d'une API.",
     companyContext:
-      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 10, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, clients, abonnements, facturation et rapprochement fournisseur/client. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
+      "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 10, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, gestion des clients, gestions des abonnements, facturation et page Rapprochement dédiée aux factures fournisseurs. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
     missions: [
       "Semaine 1 — Prise en main WPF/C#, Syncfusion, tableau de bord (UserControls, KPI, graphiques)",
       "Semaine 2 — Back-end : événements, services, DTO ; écran Clients presque terminé (SfDataGrid, CRUD)",
-      "Finalisation page Clients : redirection vers le détail avec les bonnes données, mise en forme",
-      "Développement des écrans restants (détail client, abonnements, facturation, rapprochement)",
+      "Semaine 3 — Finalisation des écrans Clients, Détail client, Abonnements, Facturation ; préparation API",
+      "Semaine 4 — Création de l'API, tests via Scalar, remplacement des services WPF et journalisation console",
+      "Développement de la page Rapprochement (factures fournisseurs) et intégration des données réelles",
       "Documentation du travail réalisé (captures d'écran, fiches récap hebdomadaires)",
     ],
     competences: [
@@ -100,7 +101,7 @@ export const stages: Stage[] = [
       "B2.3 — Concevoir et mettre en place une solution logicielle",
     ],
     bilan:
-      "Stage en cours (juin–juillet 2026) chez ID Conseils. Semaine 1 : tableau de bord WPF (Syncfusion, mock). Semaine 2 : mise en place du back-end (événements, services, DTO) et développement de l'écran Clients, presque terminé — reste la redirection vers le détail et la mise en forme. Consolidation du pattern MVVM sur un cas métier réel.",
+      "Stage en cours (juin–juillet 2026) chez ID Conseils. Semaine 1 : tableau de bord WPF (Syncfusion, mock). Semaine 2 : mise en place du back-end (événements, services, DTO) et développement de l'écran Clients. Semaine 3 : finalisation des écrans Clients, Détail client, Abonnements, Facturation et préparation d'une API pour remplacer les données mock. Semaine 4 : création de l'API, utilisation de Scalar pour tester les requêtes GET, POST, PUT et DELETE, mise en place d'une journalisation console et remplacement progressif des services WPF. Consolidation du pattern MVVM et progression vers l'intégration des données réelles.",
     deliverables: [
       {
         title: "Maquette WPF — écrans à produire (mock)",
@@ -113,14 +114,19 @@ export const stages: Stage[] = [
           "Premier écran fonctionnel : menu latéral, cartes KPI, graphiques Syncfusion (données mock v1.0.0).",
       },
       {
-        title: "Page Clients — semaine 2 (en cours)",
+        title: "Écrans métier terminés — semaine 3",
         description:
-          "Liste SfDataGrid, services et DTO ; finalisation redirection et mise en forme en cours.",
+          "Pages Clients, Détail client, Client abonnements, Facturation finalisées ; préparation API en cours.",
+      },
+      {
+        title: "API et tests de la semaine 4",
+        description:
+          "Mise en place de l'API, tests GET/POST/PUT/DELETE via Scalar, journalisation console et branchement des services WPF.",
       },
       {
         title: "Fiches récapitulatives hebdomadaires",
         description:
-          "Comptes rendus semaine 1 et 2 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md).",
+          "Comptes rendus semaine 1, 2, 3 et 4 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md, docs/rapport-semaine-3-idconseils.md, docs/rapport-semaine-4-idconseils.md).",
       },
     ],
     gallery: [
@@ -131,6 +137,18 @@ export const stages: Stage[] = [
       {
         src: img("idconseil/01-tableau-de-bord-semaine1.png"),
         alt: "Tableau de bord WPF — semaine 1, première implémentation (ID Conseils)",
+      },
+      {
+        src: img("idconseil/07-page-admin-semaine4.jpg"),
+        alt: "Page admin — semaine 4, vue de suivi et de validation des retours API",
+      },
+      {
+        src: img("idconseil/08-journalisation-semaine4.jpg"),
+        alt: "Journalisation console — semaine 4, confirmation du chargement des requêtes API",
+      },
+      {
+        src: img("idconseil/09-api-scalar-semaine4.jpg"),
+        alt: "Page Scalar — semaine 4, tests des retours API avec GET, POST, PUT et DELETE",
       },
     ],
     image: img("idconseil-logo.jpg"),

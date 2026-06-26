@@ -1,15 +1,18 @@
 import { Download, Mail, FolderKanban } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "@/components/cards/ProjectCard";
+import { StageCard } from "@/components/cards/StageCard";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { StaggerItem, StaggerList } from "@/components/motion/StaggerList";
 import { SkillBars } from "@/components/features/SkillBars";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/config/site";
 import { bioLong } from "@/data/about";
 import { getFeaturedProjects } from "@/data/projects";
+import { stages } from "@/data/stages";
 import { homeStats, skillCategories } from "@/data/skills";
 import { createPageMetadata, personJsonLd } from "@/lib/seo";
 
@@ -21,6 +24,7 @@ export const metadata = createPageMetadata({
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
+  const currentStage = stages.find((stage) => stage.slug === "stage-idconseil");
 
   return (
     <>
@@ -123,6 +127,57 @@ export default function HomePage() {
           </Button>
         </div>
       </Section>
+
+      {currentStage && (
+        <Section
+          id="stage"
+          title="Stage en cours"
+          subtitle="Semaine 4 : API, Scalar, journalisation et intégration progressive dans le WPF."
+          className="bg-muted-bg/50"
+        >
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <FadeIn>
+              <StageCard stage={currentStage} />
+            </FadeIn>
+
+            <FadeIn>
+              <Card className="h-full p-6">
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                  Semaine 4
+                </p>
+                <h3 className="mt-2 text-xl font-semibold text-foreground">
+                  Ce qui a avancé cette semaine
+                </h3>
+                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
+                  <li>
+                    Création de l&apos;API pour remplacer les données mock codées en dur.
+                  </li>
+                  <li>
+                    Tests des requêtes GET, POST, PUT et DELETE via la page Scalar et validation des retours.
+                  </li>
+                  <li>
+                    Mise en place d&apos;une journalisation console pour suivre le chargement des requêtes.
+                  </li>
+                  <li>
+                    Remplacement progressif des services WPF par des appels API.
+                  </li>
+                  <li>
+                    Finitions des pages du site métier et captures ajoutées au rapport.
+                  </li>
+                </ul>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button href="/stages/stage-idconseil" variant="secondary" size="sm">
+                    Voir le stage
+                  </Button>
+                  <Button href="/stages" variant="outline" size="sm">
+                    Tous les stages
+                  </Button>
+                </div>
+              </Card>
+            </FadeIn>
+          </div>
+        </Section>
+      )}
 
       <Section
         id="competences"

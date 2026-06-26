@@ -141,16 +141,24 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
                       className="overflow-hidden rounded-[var(--radius)] border border-card-border bg-card"
                     >
                       {item.available ? (
-                        <div className="relative aspect-[4/3] bg-white">
-                          <Image
-                            src={item.src}
-                            alt={item.alt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-contain p-4"
-                            loading="lazy"
-                          />
-                        </div>
+                        <Link
+                          href={item.src}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group block"
+                          title="Ouvrir l'image en grand"
+                        >
+                          <div className="relative aspect-[4/3] bg-white">
+                            <Image
+                              src={item.src}
+                              alt={item.alt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-contain p-4 transition-transform duration-200 group-hover:scale-[1.01]"
+                              loading="lazy"
+                            />
+                          </div>
+                        </Link>
                       ) : (
                         <div
                           className="flex aspect-[4/3] flex-col items-center justify-center gap-2 border-b border-dashed border-card-border bg-muted-bg px-4 text-center"
@@ -164,7 +172,10 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
                           </span>
                         </div>
                       )}
-                      <p className="p-3 text-xs text-muted">{item.alt}</p>
+                      <p className="p-3 text-xs text-muted">
+                        {item.alt}
+                        {item.available ? " - cliquez pour agrandir" : ""}
+                      </p>
                     </li>
                   ))}
                 </ul>

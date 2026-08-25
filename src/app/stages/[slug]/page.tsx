@@ -38,6 +38,9 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
 
   const heroImage = getStageHeroImage(stage);
   const galleryItems = getStageGalleryItems(stage);
+  const weeklyProgress = stage.weeklyProgress ?? [];
+  const reportLinks = stage.reportLinks ?? [];
+  const oralHighlights = stage.oralHighlights ?? [];
 
   return (
     <article>
@@ -86,6 +89,31 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
           </div>
         )}
 
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+              Mission
+            </p>
+            <p className="mt-2 text-sm text-muted">{stage.position}</p>
+          </div>
+          <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+              Périmètre
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              {stage.technologies.slice(0, 3).join(" · ")}
+            </p>
+          </div>
+          <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+              Résultat
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              {stage.duration} de travail sur un projet concret et documenté.
+            </p>
+          </div>
+        </div>
+
         <div className="mt-10 grid gap-10 lg:grid-cols-3">
           <div className="space-y-10 lg:col-span-2">
             <section>
@@ -96,6 +124,47 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
                 {stage.companyContext}
               </p>
             </section>
+
+            {weeklyProgress.length > 0 && (
+              <section>
+                <h2 className="text-xl font-semibold text-foreground">
+                  Progression semaine par semaine
+                </h2>
+                <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                  {weeklyProgress.map((item) => (
+                    <article
+                      key={item.week}
+                      className="rounded-[var(--radius)] border border-card-border bg-card p-4"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                          {item.week}
+                        </span>
+                        {item.reportUrl && (
+                          <Link
+                            href={item.reportUrl}
+                            className="text-xs font-medium text-accent hover:text-accent-hover"
+                          >
+                            Rapport
+                          </Link>
+                        )}
+                      </div>
+                      <h3 className="mt-3 text-base font-semibold text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {item.summary}
+                      </p>
+                      <ul className="mt-3 list-disc space-y-1 pl-4 text-sm text-muted" role="list">
+                        {item.focus.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section>
               <h2 className="text-xl font-semibold text-foreground">
@@ -225,6 +294,39 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
                 ))}
               </ul>
             </div>
+
+            {reportLinks.length > 0 && (
+              <div
+                id="acces-aux-rapports"
+                className="rounded-[var(--radius)] border border-card-border bg-card p-6"
+              >
+                <h2 className="font-semibold text-foreground">Accès aux rapports</h2>
+                <ul className="mt-3 space-y-2 text-sm text-muted" role="list">
+                  {reportLinks.map((report) => (
+                    <li key={report.week}>
+                      <Link
+                        href={report.url}
+                        className="inline-flex items-center gap-2 text-accent hover:text-accent-hover"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        {report.week} · {report.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {oralHighlights.length > 0 && (
+              <div className="rounded-[var(--radius)] border border-card-border bg-card p-6">
+                <h2 className="font-semibold text-foreground">Points de soutenance</h2>
+                <ul className="mt-3 space-y-2 text-sm text-muted" role="list">
+                  {oralHighlights.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {stage.reportUrl && (
               <Button href={stage.reportUrl} variant="outline" className="w-full">

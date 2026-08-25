@@ -135,6 +135,95 @@ export const stages: Stage[] = [
           "Comptes rendus semaine 1, 2, 3, 4 et 5 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md, docs/rapport-semaine-3-idconseils.md, docs/rapport-semaine-4-idconseils.md, docs/rapport-semaine-5-idconseils.md).",
       },
     ],
+    reportLinks: [
+      {
+        week: "Semaine 1",
+        title: "Découverte de WPF et premiers écrans",
+        url: "/rapports/rapport-semaine-1-idconseils",
+      },
+      {
+        week: "Semaine 2",
+        title: "Back-end, DTO et écran Clients",
+        url: "/rapports/rapport-semaine-2-idconseils",
+      },
+      {
+        week: "Semaine 3",
+        title: "Finalisation des écrans métier",
+        url: "/rapports/rapport-semaine-3-idconseils",
+      },
+      {
+        week: "Semaine 4",
+        title: "Création de l'API et tests Scalar",
+        url: "/rapports/rapport-semaine-4-idconseils",
+      },
+      {
+        week: "Semaine 5",
+        title: "API finalisée, gestion des erreurs et asynchronisme",
+        url: "/rapports/rapport-semaine-5-idconseils",
+      },
+    ],
+    weeklyProgress: [
+      {
+        week: "Semaine 1",
+        title: "Prise en main du projet et tableau de bord",
+        summary:
+          "Découverte de l'entreprise, prise en main de WPF et création du premier écran fonctionnel avec KPI et graphiques Syncfusion.",
+        focus: [
+          "Découverte XAML, UserControls et maquette client",
+          "Mise en place du tableau de bord mock",
+          "Validation du design et des composants Syncfusion",
+        ],
+      },
+      {
+        week: "Semaine 2",
+        title: "Architecture métier et écran Clients",
+        summary:
+          "Mise en place des services, DTO et événements pour structurer la logique de la gestion des clients et avancer sur l'écran Clients.",
+        focus: [
+          "Services C# et séparation des responsabilités",
+          "Écran Clients avec grille et outils CRUD",
+          "Préparation du passage liste → détail client",
+        ],
+      },
+      {
+        week: "Semaine 3",
+        title: "Finalisation des écrans métier",
+        summary:
+          "Clôture des pages d'information client, abonnements et facturation pour stabiliser l’application avant l’intégration API.",
+        focus: [
+          "Finalisation Détail client et facturation",
+          "Préparation des données pour la couche API",
+          "Refonte de l’architecture pour faciliter les évolutions",
+        ],
+      },
+      {
+        week: "Semaine 4",
+        title: "Création de l’API et tests fonctionnels",
+        summary:
+          "Mise en place de l’API REST, tests via Scalar, remplacement progressif des services mock et journalisation des requêtes.",
+        focus: [
+          "Endpoints GET, POST, PUT et DELETE",
+          "Contrôle des réponses serveur et journalisation",
+          "Branchement progressif dans le WPF",
+        ],
+      },
+      {
+        week: "Semaine 5",
+        title: "Stabilisation, gestion des erreurs et finalisation",
+        summary:
+          "Finalisation du service, gestion des cas d’échec HTTP, passage en async/await et validation du bon comportement de l’application en situation réelle.",
+        focus: [
+          "Gestion des réponses BadRequest et erreurs réseau",
+          "Sécurisation des appels asynchrones",
+          "Validation du projet avant bilan final",
+        ],
+      },
+    ],
+    oralHighlights: [
+      "Projet professionnel concret : application WPF de gestion des abonnements Microsoft 365 pour une structure informatique locale.",
+      "Transition d’un prototype mock vers une architecture plus réaliste avec API, services et logique métier.",
+      "Mise en avant des compétences BTS SIO : interface, code métier, tests, gestion des erreurs et documentation technique.",
+    ],
     gallery: [
       {
         src: img("idconseil/00-maquette-ecrans-mock.png"),

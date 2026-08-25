@@ -131,8 +131,8 @@ export default function HomePage() {
       {currentStage && (
         <Section
           id="stage"
-          title="Stage en cours"
-          subtitle="Semaine 4 : API, Scalar, journalisation et intégration progressive dans le WPF."
+          title="Dernier stage"
+          subtitle="Semaine 5 : finalisation de l'API, gestion des erreurs HTTP et validation des cas d'échec dans l'application WPF."
           className="bg-muted-bg/50"
         >
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
@@ -143,34 +143,34 @@ export default function HomePage() {
             <FadeIn>
               <Card className="h-full p-6">
                 <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-                  Semaine 4
+                  Semaine 5
                 </p>
                 <h3 className="mt-2 text-xl font-semibold text-foreground">
                   Ce qui a avancé cette semaine
                 </h3>
                 <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
                   <li>
-                    Création de l&apos;API pour remplacer les données mock codées en dur.
+                    Finalisation de l&apos;API et remplacement complet des dernières données mock.
                   </li>
                   <li>
-                    Tests des requêtes GET, POST, PUT et DELETE via la page Scalar et validation des retours.
+                    Gestion plus rigoureuse des erreurs HTTP, notamment les réponses BadRequest et les cas de données absentes.
                   </li>
                   <li>
-                    Mise en place d&apos;une journalisation console pour suivre le chargement des requêtes.
+                    Passage des méthodes critiques en async/await pour garder l&apos;interface réactive lors des appels réseau.
                   </li>
                   <li>
-                    Remplacement progressif des services WPF par des appels API.
+                    Validation des scénarios d&apos;échec et stabilisation de l&apos;application WPF.
                   </li>
                   <li>
-                    Finitions des pages du site métier et captures ajoutées au rapport.
+                    Documentation hebdomadaire et préparation du bilan final pour la soutenance.
                   </li>
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Button href="/stages/stage-idconseil" variant="secondary" size="sm">
                     Voir le stage
                   </Button>
-                  <Button href="/stages" variant="outline" size="sm">
-                    Tous les stages
+                  <Button href="/stages/stage-idconseil#acces-aux-rapports" variant="outline" size="sm">
+                    Voir les rapports
                   </Button>
                 </div>
               </Card>

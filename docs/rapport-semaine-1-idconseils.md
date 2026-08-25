@@ -136,14 +136,4 @@ J'ai consolidé :
 
 ---
 
-## 9. Signatures
-
-| | |
-|---|---|
-| **Stagiaire** | Matthias Colin — Date : ___ / ___ / 2026 |
-| **Tuteur entreprise** | Nom : _________________ — Date : ___ / ___ / 2026 |
-| **Professeur référent** | Nom : _________________ — Date : ___ / ___ / 2026 |
-
----
-
 *Portfolio BTS SIO — Matthias Colin — Lycée Le Castel (Dijon)*

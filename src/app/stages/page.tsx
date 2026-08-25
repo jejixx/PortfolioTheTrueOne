@@ -14,8 +14,29 @@ export default function StagesPage() {
   return (
     <Section
       title="Mes stages"
-      subtitle="Stage d'observation Up | Kalidea (3ème D) et stage BTS SIO chez ID Conseils (Feillens) — application WPF de gestion d'abonnements Microsoft avec API finalisée."
+      subtitle="Deux expériences concrètes en entreprise, avec progression du stage d'observation à un projet professionnel de développement logiciel, de la conception à la validation technique."
     >
+      <div className="mb-8 grid gap-4 md:grid-cols-3">
+        <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+            Expériences
+          </p>
+          <p className="mt-2 text-lg font-semibold text-foreground">2 stages</p>
+        </div>
+        <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+            Périmètre
+          </p>
+          <p className="mt-2 text-lg font-semibold text-foreground">Web + desktop</p>
+        </div>
+        <div className="rounded-[var(--radius)] border border-card-border bg-card p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+            Focalisation
+          </p>
+          <p className="mt-2 text-lg font-semibold text-foreground">API & architecture</p>
+        </div>
+      </div>
+
       <ul className="grid gap-6 lg:grid-cols-2" role="list">
         {stages.map((stage) => (
           <li key={stage.slug}>

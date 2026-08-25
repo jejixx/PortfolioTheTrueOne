@@ -46,6 +46,20 @@ export interface Project {
   year: number;
 }
 
+export interface StageReportLink {
+  week: string;
+  title: string;
+  url: string;
+}
+
+export interface StageWeeklyProgress {
+  week: string;
+  title: string;
+  summary: string;
+  focus: string[];
+  reportUrl?: string;
+}
+
 export interface Stage {
   slug: string;
   company: string;
@@ -62,6 +76,9 @@ export interface Stage {
   bilan: string;
   deliverables?: { title: string; description: string }[];
   gallery?: { src: string; alt: string }[];
+  reportLinks?: StageReportLink[];
+  weeklyProgress?: StageWeeklyProgress[];
+  oralHighlights?: string[];
   reportUrl?: string;
   image?: string;
   imageAlt?: string;

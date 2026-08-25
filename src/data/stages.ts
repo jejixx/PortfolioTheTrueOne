@@ -83,7 +83,7 @@ export const stages: Stage[] = [
     duration: "5 semaines",
     technologies: ["C#", "WPF", ".NET 10", "Syncfusion", "Microsoft 365"],
     shortDescription:
-      "Stage BTS SIO en cours chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 avec intégration progressive d'une API.",
+      "Stage BTS SIO chez ID Conseils (Feillens) — application desktop WPF de gestion des abonnements Microsoft 365 avec API finalisée, gestion des erreurs HTTP et méthodes asynchrones.",
     companyContext:
       "ID Conseils (SARL) est une entreprise de services informatiques basée au 55 Rue de l'Église, 01570 Feillens, qui accompagne ses clients depuis 2004 pour la maintenance et l'évolution de leurs systèmes informatiques. Dans le cadre de mon stage BTS SIO (option SLAM), je développe une application desktop WPF (.NET 10, Syncfusion) pour la gestion des abonnements Microsoft 365 : tableau de bord, gestion des clients, gestions des abonnements, facturation et page Rapprochement dédiée aux factures fournisseurs. Une maquette mock de l'ensemble des écrans à produire guide le développement.",
     missions: [
@@ -91,6 +91,7 @@ export const stages: Stage[] = [
       "Semaine 2 — Back-end : événements, services, DTO ; écran Clients presque terminé (SfDataGrid, CRUD)",
       "Semaine 3 — Finalisation des écrans Clients, Détail client, Abonnements, Facturation ; préparation API",
       "Semaine 4 — Création de l'API, tests via Scalar, remplacement des services WPF et journalisation console",
+      "Semaine 5 — Finalisation de l'API, gestion des erreurs HTTP, passage en async/await et validation des cas d'échec",
       "Développement de la page Rapprochement (factures fournisseurs) et intégration des données réelles",
       "Documentation du travail réalisé (captures d'écran, fiches récap hebdomadaires)",
     ],
@@ -101,7 +102,7 @@ export const stages: Stage[] = [
       "B2.3 — Concevoir et mettre en place une solution logicielle",
     ],
     bilan:
-      "Stage en cours (juin–juillet 2026) chez ID Conseils. Semaine 1 : tableau de bord WPF (Syncfusion, mock). Semaine 2 : mise en place du back-end (événements, services, DTO) et développement de l'écran Clients. Semaine 3 : finalisation des écrans Clients, Détail client, Abonnements, Facturation et préparation d'une API pour remplacer les données mock. Semaine 4 : création de l'API, utilisation de Scalar pour tester les requêtes GET, POST, PUT et DELETE, mise en place d'une journalisation console et remplacement progressif des services WPF. Consolidation du pattern MVVM et progression vers l'intégration des données réelles.",
+      "Stage BTS SIO réalisé chez ID Conseils (juin–juillet 2026). Semaine 1 : tableau de bord WPF (Syncfusion, mock). Semaine 2 : mise en place du back-end (événements, services, DTO) et développement de l'écran Clients. Semaine 3 : finalisation des écrans Clients, Détail client, Abonnements, Facturation et préparation d'une API pour remplacer les données mock. Semaine 4 : création de l'API, utilisation de Scalar pour tester les requêtes GET, POST, PUT et DELETE, mise en place d'une journalisation console et remplacement progressif des services WPF. Semaine 5 : finalisation de l'API, gestion des erreurs HTTP, traitement des cas de type BadRequest et passage en async/await pour garder une interface réactive. Le projet m'a permis de consolider le pattern MVVM et de mieux comprendre l'intégration d'une application desktop avec une source de données réelle.",
     deliverables: [
       {
         title: "Maquette WPF — écrans à produire (mock)",
@@ -124,9 +125,14 @@ export const stages: Stage[] = [
           "Mise en place de l'API, tests GET/POST/PUT/DELETE via Scalar, journalisation console et branchement des services WPF.",
       },
       {
+        title: "Gestion d'erreurs et asynchrone — semaine 5",
+        description:
+          "API finalisée, gestion des erreurs HTTP (BadRequest, réponses d'échec) et méthodes passées en async/await pour éviter le blocage.",
+      },
+      {
         title: "Fiches récapitulatives hebdomadaires",
         description:
-          "Comptes rendus semaine 1, 2, 3 et 4 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md, docs/rapport-semaine-3-idconseils.md, docs/rapport-semaine-4-idconseils.md).",
+          "Comptes rendus semaine 1, 2, 3, 4 et 5 (docs/rapport-semaine-1-idconseils.md, docs/rapport-semaine-2-idconseils.md, docs/rapport-semaine-3-idconseils.md, docs/rapport-semaine-4-idconseils.md, docs/rapport-semaine-5-idconseils.md).",
       },
     ],
     gallery: [
@@ -149,6 +155,18 @@ export const stages: Stage[] = [
       {
         src: img("idconseil/09-api-scalar-semaine4.jpg"),
         alt: "Page Scalar — semaine 4, tests des retours API avec GET, POST, PUT et DELETE",
+      },
+      {
+        src: img("idconseil/10-dashboard-request-error-semaine5jpg.jpg"),
+        alt: "Dashboard WPF — semaine 5, erreur de récupération des données depuis l'API",
+      },
+      {
+        src: img("idconseil/11-api-supprimerCliendId-semaine5.jpg"),
+        alt: "API — semaine 5, suppression du client numéro 1 côté serveur",
+      },
+      {
+        src: img("idconseil/12-supprimerClindId-deja-supprimer-semaine5.jpg"),
+        alt: "Application WPF — semaine 5, suppression du client numéro 1 avec erreur car il n'existe plus",
       },
     ],
     image: img("idconseil-logo.jpg"),

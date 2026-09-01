@@ -166,17 +166,6 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
               </section>
             )}
 
-            <section>
-              <h2 className="text-xl font-semibold text-foreground">
-                Missions réalisées
-              </h2>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-muted" role="list">
-                {stage.missions.map((mission) => (
-                  <li key={mission}>{mission}</li>
-                ))}
-              </ul>
-            </section>
-
             {stage.deliverables && stage.deliverables.length > 0 && (
               <section>
                 <h2 className="text-xl font-semibold text-foreground">

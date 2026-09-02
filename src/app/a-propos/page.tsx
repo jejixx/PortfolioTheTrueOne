@@ -6,7 +6,6 @@ import {
   languages,
   professionalExperiences,
   softSkills,
-  veilleItems,
 } from "@/data/about";
 import { siteConfig } from "@/config/site";
 import { FadeIn } from "@/components/motion/FadeIn";
@@ -98,30 +97,33 @@ export default function AboutPage() {
         title="Veille technologique"
         subtitle="Comment je reste informé — essentiel pour le BTS SIO."
       >
-        <ul className="grid gap-6 md:grid-cols-2" role="list">
-          {veilleItems.map((item) => (
-            <li key={item.title}>
-              <Card as="article">
-                <h3 className="font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-1 text-sm font-medium text-accent">
-                  {item.source}
-                </p>
-                <p className="mt-3 text-sm text-muted">{item.description}</p>
-                {item.url && (
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover"
-                  >
-                    Consulter
-                    <ExternalLink className="h-4 w-4" aria-hidden />
-                  </a>
-                )}
-              </Card>
-            </li>
-          ))}
-        </ul>
+        <FadeIn>
+          <div className="max-w-3xl space-y-4 text-base leading-relaxed text-muted mb-8">
+            <p>
+              Pour rester à jour dans l'univers technologique, j'effectue une veille quotidienne. Chaque soir, je jette un coup d'œil à la section <strong>Veille</strong> de mon portfolio pour découvrir et lire les articles les plus pertinents et tendances du moment.
+            </p>
+            <p>
+              <strong>Source principale :</strong> Je m'appuie sur <strong>Hacker News</strong>, une plateforme très reconnue dans l'écosystème tech, fondée par Y Combinator. Les articles y sont curatés par une communauté de développeurs et entrepreneurs de haut niveau, ce qui garantit la qualité du contenu.
+            </p>
+            <p>
+              <strong>Avant :</strong> J'utilisais autrefois <strong>Feedly</strong> pour agréger plusieurs sources RSS. J'ai migré vers Hacker News directement via mon portfolio car c'est plus simple, plus pertinent et directement intégré à mon site.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="mt-8 rounded-[var(--radius)] border border-card-border bg-card p-6">
+          <h3 className="mb-4 font-semibold text-foreground">Accéder à ma veille</h3>
+          <p className="text-sm text-muted mb-4">
+            Retrouvez tous les articles de Hacker News directement sur mon portfolio :
+          </p>
+          <a
+            href="/veille"
+            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-medium"
+          >
+            Consulter la page Veille
+            <ExternalLink className="h-4 w-4" aria-hidden />
+          </a>
+        </div>
       </Section>
 
       <Section title="Curriculum Vitae" className="bg-muted-bg/50">

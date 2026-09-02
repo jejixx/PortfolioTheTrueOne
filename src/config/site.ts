@@ -28,5 +28,6 @@ export const navLinks = [
   { href: "/stages", label: "Stages" },
   { href: "/projets", label: "Projets" },
   { href: "/competences", label: "Compétences" },
+  { href: "/veille", label: "Veille" },
   { href: "/contact", label: "Contact" },
 ] as const;

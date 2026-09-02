@@ -297,7 +297,7 @@ export default async function StageDetailPage({ params }: StageDetailPageProps) 
                         href={report.url}
                         className="inline-flex items-center gap-2 text-accent hover:text-accent-hover"
                       >
-                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        <ExternalLink className="h-3.5 w-3.5 flex-shrink-0" aria-hidden />
                         {report.week} · {report.title}
                       </Link>
                     </li>

@@ -66,6 +66,12 @@ export function Navbar({ theme }: NavbarProps) {
 
         <div className="flex items-center gap-2">
           <ThemeToggle initialTheme={theme} />
+          <Link
+            href="/admin/connexions"
+            className="hidden rounded-[var(--radius)] px-3 py-2 text-sm font-medium text-muted hover:bg-muted-bg hover:text-foreground sm:block"
+          >
+            Admin
+          </Link>
           <form action={logoutAction}>
             <button
               type="submit"

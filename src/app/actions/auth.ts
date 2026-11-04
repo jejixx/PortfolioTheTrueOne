@@ -1,7 +1,8 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { recordLoginAttempt } from "@/lib/login-log";
 import {
   AUTH_COOKIE,
   createSessionToken,
@@ -20,6 +21,10 @@ export async function loginAction(
   const username = formData.get("username");
   const password = formData.get("password");
   const config = getConfiguredCredentials();
+  const requestHeaders = await headers();
+  const forwardedIp = requestHeaders.get("x-forwarded-for")?.split(",")[0];
+  const ip = forwardedIp?.trim() || requestHeaders.get("x-real-ip") || "inconnue";
+  const userAgent = requestHeaders.get("user-agent") || "inconnu";
 
   if (!config) {
     return {
@@ -34,9 +39,23 @@ export async function loginAction(
     username !== config.username ||
     password !== config.password
   ) {
+    await recordLoginAttempt({
+      username: typeof username === "string" ? username : "inconnu",
+      ip,
+      userAgent,
+      success: false,
+      createdAt: new Date().toISOString(),
+    });
     return { error: "Identifiant ou mot de passe incorrect." };
   }
 
+  await recordLoginAttempt({
+    username,
+    ip,
+    userAgent,
+    success: true,
+    createdAt: new Date().toISOString(),
+  });
   const token = await createSessionToken(username);
   const cookieStore = await cookies();
   cookieStore.set(AUTH_COOKIE, token, sessionCookieOptions);

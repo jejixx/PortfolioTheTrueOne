@@ -48,11 +48,16 @@ Copiez `.env.example` vers `.env.local` (ne jamais committer `.env.local`).
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | URL publique du site (SEO, sitemap, Open Graph) |
+| `AUTH_USERNAME` | Identifiant de connexion au portfolio |
+| `AUTH_PASSWORD` | Mot de passe de connexion au portfolio |
+| `AUTH_SECRET` | Clé secrète longue et aléatoire utilisée pour signer la session |
 | `RESEND_API_KEY` | Clé API [Resend](https://resend.com) pour le formulaire de contact |
 | `CONTACT_EMAIL` | Adresse qui reçoit les messages du formulaire |
 | `RESEND_FROM` | Expéditeur (par défaut `Portfolio <onboarding@resend.dev>`) |
 
 **Mode test Resend :** avec `onboarding@resend.dev`, les e-mails ne peuvent être envoyés **qu’à l’adresse du compte Resend** (souvent la même que `CONTACT_EMAIL`). Pour envoyer vers d’autres adresses, vérifiez un domaine sur [resend.com/domains](https://resend.com/domains).
+
+Le site redirige toute route applicative non authentifiée vers `/login`. Définissez les trois variables `AUTH_*` dans `.env.local` et utilisez des valeurs fortes en production. Les fichiers statiques et les ressources internes de Next.js restent accessibles pour permettre au formulaire de connexion de fonctionner.
 
 ---
 

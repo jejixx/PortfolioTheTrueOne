@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navLinks, siteConfig } from "@/config/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { logoutAction } from "@/app/actions/auth";
 import type { Theme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -65,6 +66,14 @@ export function Navbar({ theme }: NavbarProps) {
 
         <div className="flex items-center gap-2">
           <ThemeToggle initialTheme={theme} />
+          <form action={logoutAction}>
+            <button
+              type="submit"
+              className="hidden rounded-[var(--radius)] px-3 py-2 text-sm font-medium text-muted hover:bg-muted-bg hover:text-foreground sm:block"
+            >
+              Déconnexion
+            </button>
+          </form>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius)] border border-card-border bg-card md:hidden"

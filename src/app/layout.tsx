@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SkipToContent } from "@/components/layout/SkipToContent";
 import { siteConfig } from "@/config/site";
+import { AUTH_COOKIE, isValidSession } from "@/lib/auth";
 import { parseTheme, THEME_COOKIE } from "@/lib/theme";
 import "./globals.css";
 
@@ -38,6 +39,9 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const theme = parseTheme(cookieStore.get(THEME_COOKIE)?.value);
+  const authenticated = await isValidSession(
+    cookieStore.get(AUTH_COOKIE)?.value,
+  );
 
   return (
     <html
@@ -48,10 +52,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
-        <SkipToContent />
-        <Navbar theme={theme} />
+        {authenticated ? <SkipToContent /> : null}
+        {authenticated ? <Navbar theme={theme} /> : null}
         <main id="main-content">{children}</main>
-        <Footer />
+        {authenticated ? <Footer /> : null}
       </body>
     </html>
   );

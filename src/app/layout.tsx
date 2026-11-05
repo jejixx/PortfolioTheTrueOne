@@ -22,10 +22,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Portfolio BTS SIO`,
-    template: `%s | ${siteConfig.name}`,
+    default: "Espace privé",
+    template: `%s | Espace privé`,
   },
-  description: siteConfig.description,
+  description: "Espace privé. Connexion requise.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

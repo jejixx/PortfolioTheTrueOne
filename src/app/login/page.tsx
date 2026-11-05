@@ -3,7 +3,18 @@ import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
   title: "Connexion",
+  description: "Espace privé. Connexion requise.",
   robots: { index: false, follow: false },
+  openGraph: {
+    title: "Connexion | Espace privé",
+    description: "Espace privé. Connexion requise.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Connexion | Espace privé",
+    description: "Espace privé. Connexion requise.",
+  },
 };
 
 export default function LoginPage() {

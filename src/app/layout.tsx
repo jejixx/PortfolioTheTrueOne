@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SkipToContent } from "@/components/layout/SkipToContent";
+import { SessionActivity } from "@/components/layout/SessionActivity";
 import { siteConfig } from "@/config/site";
 import { AUTH_COOKIE, isValidSession } from "@/lib/auth";
 import { parseTheme, THEME_COOKIE } from "@/lib/theme";
@@ -53,6 +54,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         {authenticated ? <SkipToContent /> : null}
+        {authenticated ? <SessionActivity /> : null}
         {authenticated ? <Navbar theme={theme} /> : null}
         <main id="main-content">{children}</main>
         {authenticated ? <Footer /> : null}

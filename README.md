@@ -68,12 +68,20 @@ CREATE TABLE auth_sessions (
   id UUID PRIMARY KEY,
   username TEXT NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  last_activity_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   revoked_at TIMESTAMPTZ
 );
 
 CREATE INDEX auth_sessions_active_idx
   ON auth_sessions (id)
   WHERE revoked_at IS NULL;
+```
+
+Les sessions sont automatiquement invalidées après 10 minutes sans activité. Si la table existe déjà, ajoutez la colonne avec :
+
+```sql
+ALTER TABLE auth_sessions
+ADD COLUMN IF NOT EXISTS last_activity_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
 ```
 
 ---

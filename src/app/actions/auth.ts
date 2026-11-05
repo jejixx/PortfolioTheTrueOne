@@ -3,7 +3,11 @@
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { recordLoginAttempt } from "@/lib/login-log";
-import { registerSession, revokeSession } from "@/lib/session-store";
+import {
+  registerSession,
+  revokeSession,
+  updateSessionActivity,
+} from "@/lib/session-store";
 import {
   AUTH_COOKIE,
   createSessionToken,
@@ -89,4 +93,25 @@ export async function logoutAction() {
 
   cookieStore.delete(AUTH_COOKIE);
   redirect("/login");
+}
+
+export async function refreshSessionActivity() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(AUTH_COOKIE)?.value;
+  const config = getConfiguredCredentials();
+
+  if (!token || !config) {
+    return;
+  }
+
+  try {
+    const { jwtVerify } = await import("jose");
+    const { payload } = await jwtVerify(token, config.secret);
+
+    if (typeof payload.jti === "string") {
+      await updateSessionActivity(payload.jti);
+    }
+  } catch {
+    // An expired or invalid session will be rejected by the proxy.
+  }
 }

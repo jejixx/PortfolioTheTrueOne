@@ -23,8 +23,8 @@ export async function registerSession(sessionId: string, username: string) {
   const database = requireDatabase();
 
   await database`
-    INSERT INTO auth_sessions (id, username)
-    VALUES (${sessionId}, ${username})
+    INSERT INTO auth_sessions (id, username, last_activity_at)
+    VALUES (${sessionId}, ${username}, NOW())
   `;
 }
 
@@ -33,11 +33,23 @@ export async function isSessionActive(sessionId: string) {
   const rows = await database`
     SELECT id
     FROM auth_sessions
-    WHERE id = ${sessionId} AND revoked_at IS NULL
+    WHERE id = ${sessionId}
+      AND revoked_at IS NULL
+      AND last_activity_at > NOW() - INTERVAL '10 minutes'
     LIMIT 1
   `;
 
   return rows.length > 0;
+}
+
+export async function updateSessionActivity(sessionId: string) {
+  const database = requireDatabase();
+
+  await database`
+    UPDATE auth_sessions
+    SET last_activity_at = NOW()
+    WHERE id = ${sessionId} AND revoked_at IS NULL
+  `;
 }
 
 export async function revokeSession(sessionId: string) {

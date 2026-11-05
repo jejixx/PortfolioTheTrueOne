@@ -61,6 +61,21 @@ Le site redirige toute route applicative non authentifiée vers `/login`. Défin
 
 La page `/admin/connexions` affiche les adresses IP et les informations des tentatives de connexion. Les données sont stockées dans la table Postgres `login_attempts` et limitées aux 500 dernières tentatives. Vercel/Neon fournit automatiquement la variable `DATABASE_URL` (les variables `POSTGRES_URL` et `POSTGRES_URL_NON_POOLING` sont également reconnues).
 
+Pour révoquer réellement les sessions lors d’une déconnexion, créez aussi cette table dans Neon :
+
+```sql
+CREATE TABLE auth_sessions (
+  id UUID PRIMARY KEY,
+  username TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  revoked_at TIMESTAMPTZ
+);
+
+CREATE INDEX auth_sessions_active_idx
+  ON auth_sessions (id)
+  WHERE revoked_at IS NULL;
+```
+
 ---
 
 ## Déploiement sur serveur Ubuntu (SSH)

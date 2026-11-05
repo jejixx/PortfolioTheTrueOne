@@ -3,6 +3,7 @@
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { recordLoginAttempt } from "@/lib/login-log";
+import { registerSession, revokeSession } from "@/lib/session-store";
 import {
   AUTH_COOKIE,
   createSessionToken,
@@ -56,7 +57,8 @@ export async function loginAction(
     success: true,
     createdAt: new Date().toISOString(),
   });
-  const token = await createSessionToken(username);
+  const { token, sessionId } = await createSessionToken(username);
+  await registerSession(sessionId, username);
   const cookieStore = await cookies();
   cookieStore.set(AUTH_COOKIE, token, sessionCookieOptions);
 
@@ -65,6 +67,26 @@ export async function loginAction(
 
 export async function logoutAction() {
   const cookieStore = await cookies();
+  const token = cookieStore.get(AUTH_COOKIE)?.value;
+
+  if (token) {
+    const config = getConfiguredCredentials();
+
+    if (config) {
+      const { jwtVerify } = await import("jose");
+
+      try {
+        const { payload } = await jwtVerify(token, config.secret);
+
+        if (typeof payload.jti === "string") {
+          await revokeSession(payload.jti);
+        }
+      } catch {
+        // The cookie is deleted even when its token is already invalid.
+      }
+    }
+  }
+
   cookieStore.delete(AUTH_COOKIE);
   redirect("/login");
 }

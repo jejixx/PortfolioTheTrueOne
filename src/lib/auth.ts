@@ -1,4 +1,5 @@
 import { jwtVerify, SignJWT } from "jose";
+import { isSessionActive } from "@/lib/session-store";
 
 export const AUTH_COOKIE = "portfolio_session";
 const SESSION_DURATION_SECONDS = 60 * 60 * 24 * 7;
@@ -27,11 +28,15 @@ export async function createSessionToken(username: string) {
     throw new Error("Authentication is not configured.");
   }
 
-  return new SignJWT({ username })
+  const sessionId = crypto.randomUUID();
+  const token = await new SignJWT({ username })
     .setProtectedHeader({ alg: "HS256" })
+    .setJti(sessionId)
     .setIssuedAt()
     .setExpirationTime(`${SESSION_DURATION_SECONDS}s`)
     .sign(config.secret);
+
+  return { token, sessionId };
 }
 
 export async function isValidSession(token: string | undefined) {
@@ -42,8 +47,8 @@ export async function isValidSession(token: string | undefined) {
   }
 
   try {
-    await jwtVerify(token, secret);
-    return true;
+    const { payload } = await jwtVerify(token, secret);
+    return typeof payload.jti === "string" && isSessionActive(payload.jti);
   } catch {
     return false;
   }

@@ -1,5 +1,4 @@
-import { appendFile, mkdir, readFile } from "node:fs/promises";
-import path from "node:path";
+import postgres from "postgres";
 
 export interface LoginAttempt {
   id: string;
@@ -10,37 +9,69 @@ export interface LoginAttempt {
   createdAt: string;
 }
 
-const LOG_DIRECTORY = path.join(process.cwd(), "data");
-const LOG_FILE = path.join(LOG_DIRECTORY, "login-attempts.jsonl");
-const MAX_ATTEMPTS = 500;
+const connectionString =
+  process.env.DATABASE_URL ??
+  process.env.POSTGRES_URL ??
+  process.env.POSTGRES_URL_NON_POOLING;
+
+const sql = connectionString
+  ? postgres(connectionString, {
+      max: 1,
+      prepare: false,
+    })
+  : null;
 
 export async function recordLoginAttempt(attempt: Omit<LoginAttempt, "id">) {
-  await mkdir(LOG_DIRECTORY, { recursive: true });
-  await appendFile(
-    LOG_FILE,
-    `${JSON.stringify({
-      ...attempt,
-      id: crypto.randomUUID(),
-    })}\n`,
-    "utf8",
-  );
+  if (!sql) {
+    throw new Error(
+      "Database is not configured. Set DATABASE_URL or POSTGRES_URL.",
+    );
+  }
+
+  await sql`
+    INSERT INTO login_attempts (
+      id, username, ip, user_agent, success, created_at
+    )
+    VALUES (
+      ${crypto.randomUUID()},
+      ${attempt.username},
+      ${attempt.ip},
+      ${attempt.userAgent},
+      ${attempt.success},
+      ${attempt.createdAt}
+    )
+  `;
 }
 
 export async function getLoginAttempts() {
-  try {
-    const content = await readFile(LOG_FILE, "utf8");
-    const attempts = content
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => JSON.parse(line) as LoginAttempt)
-      .reverse();
-
-    return attempts.slice(0, MAX_ATTEMPTS);
-  } catch (error) {
-    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
-      return [];
-    }
-
-    throw error;
+  if (!sql) {
+    throw new Error(
+      "Database is not configured. Set DATABASE_URL or POSTGRES_URL.",
+    );
   }
+
+  const rows = await sql<
+    Array<{
+      id: string;
+      username: string;
+      ip: string;
+      user_agent: string;
+      success: boolean;
+      created_at: Date;
+    }>
+  >`
+    SELECT id, username, ip, user_agent, success, created_at
+    FROM login_attempts
+    ORDER BY created_at DESC
+    LIMIT 500
+  `;
+
+  return rows.map((row) => ({
+    id: row.id,
+    username: row.username,
+    ip: row.ip,
+    userAgent: row.user_agent,
+    success: row.success,
+    createdAt: row.created_at.toISOString(),
+  }));
 }

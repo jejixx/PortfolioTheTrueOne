@@ -59,7 +59,7 @@ Copiez `.env.example` vers `.env.local` (ne jamais committer `.env.local`).
 
 Le site redirige toute route applicative non authentifiée vers `/login`. Définissez les trois variables `AUTH_*` dans `.env.local` et utilisez des valeurs fortes en production. Les fichiers statiques et les ressources internes de Next.js restent accessibles pour permettre au formulaire de connexion de fonctionner.
 
-La page `/admin/connexions` affiche les adresses IP et les informations des tentatives de connexion. Les données sont stockées localement dans `data/login-attempts.jsonl`, ignoré par Git, et limitées aux 500 dernières tentatives.
+La page `/admin/connexions` affiche les adresses IP et les informations des tentatives de connexion. Les données sont stockées dans la table Postgres `login_attempts` et limitées aux 500 dernières tentatives. Vercel/Neon fournit automatiquement la variable `DATABASE_URL` (les variables `POSTGRES_URL` et `POSTGRES_URL_NON_POOLING` sont également reconnues).
 
 ---
 
